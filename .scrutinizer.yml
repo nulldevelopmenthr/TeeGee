@@ -1,0 +1,32 @@
+build:
+  environment:
+    php:
+      version: '5.5.14'
+      ini:
+         'date.timezone': 'UTC'
+  dependencies:
+    before:
+      - 'sudo composer self-update'
+  tests:
+    override:
+      -
+        command: 'vendor/bin/phpunit -c phpunit.xml --coverage-clover=coverage0'
+        coverage: { file: coverage0, format: php-clover }
+filter:
+  paths: [src/*]
+tools:
+  php_code_sniffer:
+    enabled: true
+    config:
+      standard: ./phpcs.xml
+  php_sim: true
+  php_changetracking: true
+  php_cs_fixer: true
+  php_mess_detector:
+    enabled: true
+    config:
+      ruleset: ./phpmd.xml
+  php_pdepend: true
+  php_analyzer: true
+  sensiolabs_security_checker: true
+  php_code_coverage: true

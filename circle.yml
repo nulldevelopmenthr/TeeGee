@@ -1,0 +1,16 @@
+machine:
+  php:
+    version: 5.5.11
+dependencies:
+  cache_directories:
+    - "vendor"
+test:
+  override:
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    - ./vendor/bin/phpunit
+    - sed -i 's/^/;/' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    - ./vendor/bin/phpmd src/ text phpmd.xml
+    - ./vendor/bin/phpcs --standard=phpcs.xml src/ -n
+    - ./vendor/bin/coveralls
+
+  

@@ -1,0 +1,38 @@
+{
+  "name": "nulldev/teegee",
+  "description": "",
+  "keywords": ["php"],
+  "homepage": "https://github.com/nulldevelopmenthr/TeeGee",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Miro Svrtan",
+      "email": "miro@mirosvrtan.me",
+      "homepage": "https://www.mirosvrtan.me"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "nulldev/examiner": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.4",
+    "mockery/mockery": "~0.9",
+    "phpspec/phpspec": "~2.0",
+    "phpmd/phpmd": "~2.1",
+    "squizlabs/php_codesniffer": "2.*",
+    "satooshi/php-coveralls": "0.6.*",
+    "fzaninotto/faker": "~1.2"
+  },
+  "suggest": {
+  },
+  "autoload": {
+    "psr-0": {
+      "NullDev\\TeeGee": "src/"
+    },
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  }
+}

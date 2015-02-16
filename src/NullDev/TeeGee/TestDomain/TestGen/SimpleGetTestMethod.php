@@ -7,7 +7,7 @@ class SimpleGetTestMethod
 
     public function __construct($testMetaData)
     {
-        $this->testMetaData = testMetaData;
+        $this->testMetaData = $testMetaData;
     }
 
     public function render($method)
@@ -16,7 +16,13 @@ class SimpleGetTestMethod
 
         $template->setVar(
             [
-                'methodName' => ucfirst($method->name)
+                'methodName' => ucfirst($method->name),
+                'method'     => $method->name,
+                'value'      => var_export(
+                    $this->testMetaData->getReflectionObject()->getProperty(lcfirst(substr($method->name, 3))),
+                    true
+                )
+
             ]
         );
 
@@ -25,6 +31,6 @@ class SimpleGetTestMethod
 
     protected function getTemplatePath()
     {
-        return __DIR__ . '/../TestTemplate/SimpleIncompleteTestMethod.tpl';
+        return __DIR__ . '/../TestTemplate/SimpleGetTestMethod.tpl';
     }
 }

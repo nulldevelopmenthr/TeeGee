@@ -106,7 +106,7 @@ class BasicUnitTestGen extends AbstractTestGen
 
                 if (
                     substr($method->getName(), 0, 3) === 'get'
-                    && $this->testMetaData->hasProperty(ucfirst(substr($method->getName(), 3)))
+                    && $this->testMetaData->hasProperty(lcfirst(substr($method->getName(), 3)))
                     && $this->testMetaData->hasMethod('set' . substr($method->getName(), 3))
                 ) {
                     $methods[] = $getMethodTemplate->render($method);

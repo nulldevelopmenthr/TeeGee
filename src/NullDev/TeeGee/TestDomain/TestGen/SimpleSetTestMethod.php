@@ -25,6 +25,6 @@ class SimpleSetTestMethod
 
     protected function getTemplatePath()
     {
-        return __DIR__ . '/../TestTemplate/SimpleIncompleteTestMethod.tpl';
+        return __DIR__ . '/../TestTemplate/SimpleSetTestMethod.tpl';
     }
 }

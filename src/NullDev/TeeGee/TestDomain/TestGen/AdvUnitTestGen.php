@@ -57,7 +57,7 @@ class AdvUnitTestGen extends AbstractTestGen
             }
 
             if (count($params)) {
-                $constructorArguments  = implode(PHP_EOL . '        ', $params);
+                $constructorArguments = implode(PHP_EOL . '        ', $params);
                 $constructorArguments .= PHP_EOL . PHP_EOL;
 
                 return $constructorArguments;
@@ -92,16 +92,36 @@ class AdvUnitTestGen extends AbstractTestGen
         $methods = [];
 
         $methodTemplate = new MockTestMethod($this->testMetaData);
+        $getMethodTemplate = new MockGetTestMethod($this->testMetaData);
+        $setMethodTemplate = new MockSetTestMethod($this->testMetaData);
 
         foreach ($this->testMetaData->getReflectionObject()->getMethods() as $method) {
-            if (!$method->isConstructor() && $method->isPublic() && $method->class === $this->testMetaData->getFullyQualifiedClassName()) {
-                $methods[] = $methodTemplate->render($method);
+            if (!$method->isConstructor()
+                && $method->isPublic()
+                && $method->class === $this->testMetaData->getFullyQualifiedClassName()
+            ) {
+
+                if (
+                    substr($method->getName(), 0, 3) === 'get'
+                    && $this->testMetaData->hasProperty(lcfirst(substr($method->getName(), 3)))
+                    && $this->testMetaData->hasMethod('set' . substr($method->getName(), 3))
+                ) {
+                    $methods[] = $getMethodTemplate->render($method);
+                } elseif (
+                    substr($method->getName(), 0, 3) === 'set'
+                    && $this->testMetaData->hasMethod('get' . substr($method->getName(), 3))
+                    && $method->getNumberOfParameters() === 1
+                ) {
+                    $methods[] = $setMethodTemplate->render($method);
+                } else {
+                    $methods[] = $methodTemplate->render($method);
+                }
             }
         }
 
         if (count($methods) === 0) {
             $nothingMethodTemplate = new NothingTestMethod();
-            $methods[] = $nothingMethodTemplate->render();
+            $methods[]             = $nothingMethodTemplate->render();
         }
 
         $content = '';

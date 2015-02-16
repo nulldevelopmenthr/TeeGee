@@ -80,7 +80,12 @@ class MockSetTestMethod
             $params = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $params[] = '$mock' . ucfirst($methodParam->name) . ' = m::mock();';
+                if ($methodParam->getClass()) {
+                    $mockClass = $methodParam->getClass();
+                    $params[]  = '$mock' . ucfirst($methodParam->name) . " = m::mock('" . $mockClass->getName() . "');";
+                } else {
+                    $params[] = '$mock' . ucfirst($methodParam->name) . " = m::mock();";
+                }
             }
 
             if (count($params)) {

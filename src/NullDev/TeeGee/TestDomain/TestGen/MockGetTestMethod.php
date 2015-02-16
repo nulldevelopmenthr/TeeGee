@@ -85,7 +85,6 @@ class MockGetTestMethod
                     $params[]  = '$mock' . ucfirst($methodParam->name) . " = m::mock('" . $mockClass->getName() . "');";
                 } else {
                     $params[] = '$mock' . ucfirst($methodParam->name) . " = m::mock();";
-
                 }
 
             }

@@ -76,7 +76,12 @@ class AdvUnitTestGen extends AbstractTestGen
             $arguments = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $arguments[] = '$mock' . ucfirst($methodParam->name);
+                if ($methodParam->getClass()) {
+                    $mockClass = $methodParam->getClass();
+                    $params[]  = '$mock' . ucfirst($methodParam->name) . " = m::mock('" . $mockClass->getName() . "');";
+                } else {
+                    $params[] = '$mock' . ucfirst($methodParam->name) . " = m::mock();";
+                }
             }
 
             if (count($arguments)) {

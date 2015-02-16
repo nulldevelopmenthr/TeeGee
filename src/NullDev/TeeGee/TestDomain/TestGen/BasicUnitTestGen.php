@@ -96,7 +96,7 @@ class BasicUnitTestGen extends AbstractTestGen
         $methodTemplate = new SimpleIncompleteTestMethod();
 
         foreach ($this->testMetaData->getReflectionObject()->getMethods() as $method) {
-            if (!$method->isConstructor() && $method->isPublic()) {
+            if (!$method->isConstructor() && $method->isPublic() && $method->class === $this->testMetaData->getFullyQualifiedClassName()) {
 
                 $methods[] = $methodTemplate->render($method);
             }

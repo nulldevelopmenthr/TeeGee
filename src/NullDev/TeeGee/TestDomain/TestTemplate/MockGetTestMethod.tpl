@@ -5,7 +5,7 @@
      */
     public function test{methodName}()
     {
-        $this->markTestIncomplete('TODO');
+        //$this->markTestIncomplete('TODO');
 
         //
         {constructorArguments}
@@ -13,7 +13,5 @@
 
         //
         {methodArguments}
-        $result = $obj->{method};
-
-        $this->assertNotNull($result);
+        $this->assertEquals({value},$obj->{method});
     }

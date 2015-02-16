@@ -14,11 +14,20 @@ class MockGetTestMethod
     {
         $template = new \Text_Template($this->getTemplatePath());
 
+        $propertyName = lcfirst(substr($method->name, 3));
+        $property     = $this->testMetaData->getReflectionObject()->getProperty($propertyName);
+        $property->setAccessible(true);
+        $value = $property->getValue();
+
         $template->setVar(
             [
                 'methodName'           => ucfirst($method->name),
                 'methodArguments'      => $this->getMethodArgumentsString($method),
                 'method'               => $this->getMethodString($method),
+                'value'                => var_export(
+                    $value,
+                    true
+                ),
                 'constructorArguments' => $this->getConstructorArgumentsString(),
                 'constructor'          => $this->getConstructorString()
             ]
@@ -36,7 +45,7 @@ class MockGetTestMethod
         }
 
         if (count($params)) {
-            $methodArguments  = implode(PHP_EOL . '        ', $params);
+            $methodArguments = implode(PHP_EOL . '        ', $params);
             $methodArguments .= PHP_EOL . PHP_EOL;
 
             return $methodArguments;
@@ -70,11 +79,19 @@ class MockGetTestMethod
             $params = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $params[] = '$mock' . ucfirst($methodParam->name) . ' = m::mock();';
+
+                if ($methodParam->getClass()) {
+                    $mockClass = $methodParam->getClass();
+                    $params[]  = '$mock' . ucfirst($methodParam->name) . " = m::mock('" . $mockClass->getName() . "');";
+                } else {
+                    $params[] = '$mock' . ucfirst($methodParam->name) . " = m::mock();";
+
+                }
+
             }
 
             if (count($params)) {
-                $constructorArguments  = implode(PHP_EOL . '        ', $params);
+                $constructorArguments = implode(PHP_EOL . '        ', $params);
                 $constructorArguments .= PHP_EOL . PHP_EOL;
 
                 return $constructorArguments;
@@ -106,6 +123,6 @@ class MockGetTestMethod
 
     protected function getTemplatePath()
     {
-        return __DIR__ . '/../TestTemplate/MockTestMethod.tpl';
+        return __DIR__ . '/../TestTemplate/MockGetTestMethod.tpl';
     }
 }

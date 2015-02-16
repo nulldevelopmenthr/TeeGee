@@ -93,6 +93,7 @@ class BasicUnitTestGen extends AbstractTestGen
 
         $methods = [];
 
+
         $methodTemplate    = new SimpleIncompleteTestMethod();
         $getMethodTemplate = new SimpleGetTestMethod($this->testMetaData);
         $setMethodTemplate = new SimpleSetTestMethod($this->testMetaData);
@@ -120,6 +121,11 @@ class BasicUnitTestGen extends AbstractTestGen
                     $methods[] = $methodTemplate->render($method);
                 }
             }
+        }
+
+        if (count($methods) === 0) {
+            $nothingMethodTemplate = new NothingTestMethod();
+            $methods[] = $nothingMethodTemplate->render();
         }
 
         $content = '';

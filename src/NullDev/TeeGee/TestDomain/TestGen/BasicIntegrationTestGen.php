@@ -102,6 +102,11 @@ class BasicIntegrationTestGen extends AbstractTestGen
             }
         }
 
+        if (count($methods) === 0) {
+            $nothingMethodTemplate = new NothingTestMethod();
+            $methods[] = $nothingMethodTemplate->render();
+        }
+
         $content = '';
 
         if (count($methods)) {

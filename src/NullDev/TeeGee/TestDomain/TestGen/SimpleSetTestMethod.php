@@ -18,6 +18,7 @@ class SimpleSetTestMethod
             [
                 'methodName' => ucfirst($method->name),
                 'method'     => $method->name,
+                'value'      => '"' . $method->name . '"',
                 'property'   => lcfirst(substr($method->name, 3)),
                 'getMethod'  => 'get' . substr($method->name, 3),
             ]

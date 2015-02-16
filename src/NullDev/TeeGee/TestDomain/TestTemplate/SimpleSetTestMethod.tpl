@@ -5,7 +5,7 @@
      */
     public function test{methodName}()
     {
-        ${property} = '{property}';
+        ${property} = {value};
         $this->object->{method}(${property});
         $this->assertEquals(${property},$this->object->{getMethod}());
     }

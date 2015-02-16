@@ -57,7 +57,7 @@ class BasicUnitTestGen extends AbstractTestGen
             }
 
             if (count($params)) {
-                $constructorArguments  = implode(PHP_EOL . '        ', $params);
+                $constructorArguments = implode(PHP_EOL . '        ', $params);
                 $constructorArguments .= PHP_EOL . PHP_EOL;
 
                 return $constructorArguments;
@@ -93,12 +93,31 @@ class BasicUnitTestGen extends AbstractTestGen
 
         $methods = [];
 
-        $methodTemplate = new SimpleIncompleteTestMethod();
+        $methodTemplate    = new SimpleIncompleteTestMethod();
+        $getMethodTemplate = new SimpleGetTestMethod($this->testMetaData);
+        $setMethodTemplate = new SimpleSetTestMethod($this->testMetaData);
 
         foreach ($this->testMetaData->getReflectionObject()->getMethods() as $method) {
-            if (!$method->isConstructor() && $method->isPublic() && $method->class === $this->testMetaData->getFullyQualifiedClassName()) {
+            if (
+                !$method->isConstructor()
+                && $method->isPublic()
+                && $method->class === $this->testMetaData->getFullyQualifiedClassName()
+            ) {
 
-                $methods[] = $methodTemplate->render($method);
+                if (
+                    substr($method->getName(), 0, 3) === 'get'
+                    && $this->testMetaData->hasProperty(ucfirst(substr($method->getName(), 3)))
+                    && $this->testMetaData->hasMethod('set' . substr($method->getName(), 3))
+                ) {
+                    $methods[] = $getMethodTemplate->render($method);
+                } elseif (
+                    substr($method->getName(), 0, 3) === 'set'
+                    && $this->testMetaData->hasMethod('get' . substr($method->getName(), 3))
+                ) {
+                    $methods[] = $setMethodTemplate->render($method);
+                } else {
+                    $methods[] = $methodTemplate->render($method);
+                }
             }
         }
 

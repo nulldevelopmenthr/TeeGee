@@ -133,4 +133,27 @@ class TestMetaData
         }
 
     }
+
+    public function hasProperty($propertyName)
+    {
+        foreach ($this->getReflectionObject()->getProperties() as $property) {
+            if ($property->getName() === $propertyName) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function hasMethod($methodName)
+    {
+        foreach ($this->getReflectionObject()->getMethods() as $method) {
+            if ($method->getName() === $methodName) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

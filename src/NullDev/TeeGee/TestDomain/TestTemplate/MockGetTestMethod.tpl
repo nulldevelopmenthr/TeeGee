@@ -5,8 +5,8 @@
      */
     public function test{methodName}()
     {
-        //
         {constructorArguments}
+
         $obj = new {constructor};
 
         {methodArguments}

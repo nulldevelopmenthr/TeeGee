@@ -89,7 +89,6 @@ class MockSetTestMethod
 
             if (count($params)) {
                 $constructorArguments = implode(PHP_EOL . '        ', $params);
-                $constructorArguments .= PHP_EOL . PHP_EOL;
 
                 return $constructorArguments;
             }

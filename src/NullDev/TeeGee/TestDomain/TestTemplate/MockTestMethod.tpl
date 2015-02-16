@@ -7,8 +7,8 @@
     {
         $this->markTestIncomplete('TODO');
 
-        //
         {constructorArguments}
+
         $obj = new {constructor};
 
         //

@@ -47,7 +47,6 @@ class MockSetTestMethod
 
         if (count($params)) {
             $methodArguments = implode(PHP_EOL . '        ', $params);
-            $methodArguments .= PHP_EOL;
 
             return $methodArguments;
         }

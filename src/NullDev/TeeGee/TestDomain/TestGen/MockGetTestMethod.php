@@ -15,9 +15,7 @@ class MockGetTestMethod
         $template = new \Text_Template($this->getTemplatePath());
 
         $propertyName = lcfirst(substr($method->name, 3));
-        $property     = $this->testMetaData->getReflectionObject()->getProperty($propertyName);
-        $property->setAccessible(true);
-        $value = $property->getValue();
+        $value = $this->testMetaData->getReflectionObject()->getDefaultProperties()[$propertyName];
 
         $template->setVar(
             [

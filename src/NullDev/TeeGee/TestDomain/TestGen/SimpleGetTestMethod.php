@@ -14,12 +14,18 @@ class SimpleGetTestMethod
     {
         $template = new \Text_Template($this->getTemplatePath());
 
+
+        $propertyName = lcfirst(substr($method->name, 3));
+        $property = $this->testMetaData->getReflectionObject()->getProperty($propertyName);
+        $property->setAccessible(true);
+        $value = $property->getValue();
+
         $template->setVar(
             [
                 'methodName' => ucfirst($method->name),
                 'method'     => $method->name,
                 'value'      => var_export(
-                    $this->testMetaData->getReflectionObject()->getProperty(lcfirst(substr($method->name, 3))),
+                    $value,
                     true
                 )
 

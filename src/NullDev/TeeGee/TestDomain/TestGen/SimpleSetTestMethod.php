@@ -7,7 +7,7 @@ class SimpleSetTestMethod
 
     public function __construct($testMetaData)
     {
-        $this->testMetaData = testMetaData;
+        $this->testMetaData = $testMetaData;
     }
 
     public function render($method)
@@ -16,7 +16,10 @@ class SimpleSetTestMethod
 
         $template->setVar(
             [
-                'methodName' => ucfirst($method->name)
+                'methodName' => ucfirst($method->name),
+                'method'     => $method->name,
+                'property'   => lcfirst(substr($method->name, 3)),
+                'getMethod'  => 'get' . substr($method->name, 3),
             ]
         );
 

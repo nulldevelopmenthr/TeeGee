@@ -113,6 +113,7 @@ class BasicUnitTestGen extends AbstractTestGen
                 } elseif (
                     substr($method->getName(), 0, 3) === 'set'
                     && $this->testMetaData->hasMethod('get' . substr($method->getName(), 3))
+                    && $method->getNumberOfParameters() === 1
                 ) {
                     $methods[] = $setMethodTemplate->render($method);
                 } else {

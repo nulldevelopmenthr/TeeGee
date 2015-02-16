@@ -125,7 +125,6 @@ class TestMetaData
         if (null === $constructor) {
             return false;
         }
-
         if (count($constructor->getParameters()) > 0) {
             return true;
         } else {

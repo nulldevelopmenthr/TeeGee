@@ -3,7 +3,7 @@ namespace Tests\Unit\NullDev\TeeGee\TestDomain;
 
 use Faker\Factory;
 use NullDev\TeeGee\TestDomain\TestMetaData;
-use \Mockery as m;
+use Mockery as m;
 
 class TestMetaDataTest extends \PHPUnit_Framework_TestCase
 {

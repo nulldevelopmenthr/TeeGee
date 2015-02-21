@@ -20,7 +20,7 @@ class MockTestMethod
                 'methodArguments'      => $this->getMethodArgumentsString($method),
                 'method'               => $this->getMethodString($method),
                 'constructorArguments' => $this->getConstructorArgumentsString(),
-                'constructor'          => $this->getConstructorString()
+                'constructor'          => $this->getConstructorString(),
             ]
         );
 
@@ -32,12 +32,12 @@ class MockTestMethod
         $params = [];
 
         foreach ($method->getParameters() as $methodParam) {
-            $params[] = '$mock' . ucfirst($methodParam->name) . ' = m::mock();';
+            $params[] = '$mock'.ucfirst($methodParam->name).' = m::mock();';
         }
 
         if (count($params)) {
-            $methodArguments  = implode(PHP_EOL . '        ', $params);
-            $methodArguments .= PHP_EOL . PHP_EOL;
+            $methodArguments  = implode(PHP_EOL.'        ', $params);
+            $methodArguments .= PHP_EOL.PHP_EOL;
 
             return $methodArguments;
         }
@@ -52,14 +52,14 @@ class MockTestMethod
         $arguments = [];
 
         foreach ($method->getParameters() as $methodParam) {
-            $arguments[] = '$mock' . ucfirst($methodParam->name);
+            $arguments[] = '$mock'.ucfirst($methodParam->name);
         }
 
         if (count($arguments)) {
             $argumentString = implode(', ', $arguments);
         }
 
-        return $method->name . '(' . $argumentString . ')';
+        return $method->name.'('.$argumentString.')';
     }
 
     public function getConstructorArgumentsString()
@@ -70,12 +70,12 @@ class MockTestMethod
             $params = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $params[] = '$mock' . ucfirst($methodParam->name) . ' = m::mock();';
+                $params[] = '$mock'.ucfirst($methodParam->name).' = m::mock();';
             }
 
             if (count($params)) {
-                $constructorArguments  = implode(PHP_EOL . '        ', $params);
-                $constructorArguments .= PHP_EOL . PHP_EOL;
+                $constructorArguments  = implode(PHP_EOL.'        ', $params);
+                $constructorArguments .= PHP_EOL.PHP_EOL;
 
                 return $constructorArguments;
             }
@@ -93,7 +93,7 @@ class MockTestMethod
             $arguments = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $arguments[] = '$mock' . ucfirst($methodParam->name);
+                $arguments[] = '$mock'.ucfirst($methodParam->name);
             }
 
             if (count($arguments)) {
@@ -101,11 +101,11 @@ class MockTestMethod
             }
         }
 
-        return $this->testMetaData->getClassName() . '(' . $argumentString . ')';
+        return $this->testMetaData->getClassName().'('.$argumentString.')';
     }
 
     protected function getTemplatePath()
     {
-        return __DIR__ . '/../TestTemplate/MockTestMethod.tpl';
+        return __DIR__.'/../TestTemplate/MockTestMethod.tpl';
     }
 }

@@ -2,11 +2,10 @@
 namespace NullDev\Generator\Tests\Unit\Generator;
 
 use NullDev\TeeGee\Core\SettingsGenerator;
-use \Mockery as m;
+use Mockery as m;
 
 class SettingsGeneratorTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testGenerate()
     {
         $mockSettings = m::mock();

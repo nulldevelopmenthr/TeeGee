@@ -33,7 +33,7 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $expected = [
             'namespace'            => 'namespace Tests\Unit\Namespace;',
-            'dependencies'         => 'use Namespace\ClassName;' . PHP_EOL . 'use Mockery as m;',
+            'dependencies'         => 'use Namespace\ClassName;'.PHP_EOL.'use Mockery as m;',
             'testClassName'        => 'ClassNameTest',
             'className'            => 'ClassName',
             'constructorArguments' => '',
@@ -57,7 +57,7 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
         $result   = $obj->getDependencies();
         $expected = [
             'Namespace\ClassName',
-            'Mockery as m'
+            'Mockery as m',
         ];
 
         $this->assertEquals($expected, $result);
@@ -75,7 +75,7 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getDependenciesString();
 
-        $expected  = 'use Namespace\ClassName;' . PHP_EOL;
+        $expected  = 'use Namespace\ClassName;'.PHP_EOL;
         $expected .= 'use Mockery as m;';
 
         $this->assertEquals($expected, $result);
@@ -104,10 +104,10 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getConstructorArgumentsString();
 
-        $expected  = '$mockArg1 = m::mock();' . PHP_EOL;
-        $expected .= '        $mockArg2 = m::mock();' . PHP_EOL;
+        $expected  = '$mockArg1 = m::mock();'.PHP_EOL;
+        $expected .= '        $mockArg2 = m::mock();'.PHP_EOL;
         $expected .= '        $mockArg3 = m::mock();';
-        $expected .= PHP_EOL . PHP_EOL;
+        $expected .= PHP_EOL.PHP_EOL;
 
         $this->assertEquals($expected, $result);
     }

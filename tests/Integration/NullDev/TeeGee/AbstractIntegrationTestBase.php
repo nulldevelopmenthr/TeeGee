@@ -4,7 +4,6 @@ namespace Tests\Integration\NullDev\TeeGee;
 use NullDev\TeeGee\Core\SettingsFactory;
 use NullDev\TeeGee\TestDomain\Class2TestMetaDataConverterFactory;
 use NullDev\TeeGee\TestDomain\TestMetaDataFactory;
-
 use NullDev\TeeGee\ClassDomain\ClassMetaDataFactory;
 use NullDev\TeeGee\ClassDomain\ClassMetaDataGenerator;
 use NullDev\Examiner\ReflectionClassGenerator;
@@ -17,11 +16,9 @@ use NullDev\Examiner\PhpFileLoader;
 use Symfony\Component\Finder\Finder;
 
 /**
- * Class AbstractIntegrationTestBase
- * @package Tests\Integration\NullDev\TeeGee
+ * Class AbstractIntegrationTestBase.
  *
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
- *
  */
 abstract class AbstractIntegrationTestBase extends \PHPUnit_Framework_TestCase
 {

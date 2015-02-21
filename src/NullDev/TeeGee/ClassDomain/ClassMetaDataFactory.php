@@ -3,7 +3,6 @@ namespace NullDev\TeeGee\ClassDomain;
 
 class ClassMetaDataFactory
 {
-
     /**
      * Returns a new instance of ClassMetaData.
      *

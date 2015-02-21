@@ -9,7 +9,6 @@ use Mockery as m;
  */
 class Class2TestMetaDataConverterTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @dataProvider providerTestData
      */
@@ -211,7 +210,7 @@ class Class2TestMetaDataConverterTest extends \PHPUnit_Framework_TestCase
                     'integrationTestRootPath'           => '/src/Tests/Integration/',
                     'integrationTestFqdn'               => 'Tests\\Integration\\Vendor\\Package\\Service\\ClassTest',
                     'integrationTestFilePath'           => '/src/Tests/Integration/Vendor/Package/Service/ClassTest.php',
-                ]
+                ],
             ],
             [
                 $mockClassMetaData1,
@@ -233,7 +232,7 @@ class Class2TestMetaDataConverterTest extends \PHPUnit_Framework_TestCase
                     'integrationTestRootPath'           => '/src/Vendor/Package/Tests/Integration/',
                     'integrationTestFqdn'               => 'Vendor\\Package\\Tests\\Integration\\Service\\ClassTest',
                     'integrationTestFilePath'           => '/src/Vendor/Package/Tests/Integration/Service/ClassTest.php',
-                ]
+                ],
             ],
         ];
     }

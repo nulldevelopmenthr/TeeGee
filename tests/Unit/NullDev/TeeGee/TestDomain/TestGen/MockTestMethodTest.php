@@ -9,7 +9,6 @@ use Mockery as m;
  */
 class MockTestMethodTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      *
      */
@@ -37,7 +36,7 @@ class MockTestMethodTest extends \PHPUnit_Framework_TestCase
     {
         $obj = new MockTestMethod(m::mock());
 
-        $mockParam1       =new \stdClass();
+        $mockParam1       = new \stdClass();
         $mockParam1->name = 'propertyName';
 
         $mockParam2       = new \stdClass();
@@ -50,8 +49,8 @@ class MockTestMethodTest extends \PHPUnit_Framework_TestCase
         $result = $obj->getMethodArgumentsString($mockMethod);
 
         $expectedResult  = '$mockPropertyName = m::mock();';
-        $expectedResult .= PHP_EOL . '        ';
-        $expectedResult .= '$mockGetName = m::mock();' . PHP_EOL . PHP_EOL;
+        $expectedResult .= PHP_EOL.'        ';
+        $expectedResult .= '$mockGetName = m::mock();'.PHP_EOL.PHP_EOL;
 
         $this->assertEquals($expectedResult, $result);
     }
@@ -72,7 +71,7 @@ class MockTestMethodTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethodArgumentsString($mockMethod);
 
-        $expectedResult = '$mockPropertyName = m::mock();' . PHP_EOL . PHP_EOL;
+        $expectedResult = '$mockPropertyName = m::mock();'.PHP_EOL.PHP_EOL;
 
         $this->assertEquals($expectedResult, $result);
     }
@@ -153,10 +152,10 @@ class MockTestMethodTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getConstructorArgumentsString();
 
-        $expected  = '$mockArg1 = m::mock();' . PHP_EOL;
-        $expected .= '        $mockArg2 = m::mock();' . PHP_EOL;
+        $expected  = '$mockArg1 = m::mock();'.PHP_EOL;
+        $expected .= '        $mockArg2 = m::mock();'.PHP_EOL;
         $expected .= '        $mockArg3 = m::mock();';
-        $expected .= PHP_EOL . PHP_EOL;
+        $expected .= PHP_EOL.PHP_EOL;
 
         $this->assertEquals($expected, $result);
     }

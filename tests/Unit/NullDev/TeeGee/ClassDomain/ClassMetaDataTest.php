@@ -5,7 +5,6 @@ use NullDev\TeeGee\ClassDomain\ClassMetaData;
 
 class ClassMetaDataTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testGettersAndSetters()
     {
         $obj = new ClassMetaData();
@@ -21,6 +20,5 @@ class ClassMetaDataTest extends \PHPUnit_Framework_TestCase
 
         $obj->setReflectionObject('obj');
         $this->assertEquals('obj', $obj->getReflectionObject());
-
     }
 }

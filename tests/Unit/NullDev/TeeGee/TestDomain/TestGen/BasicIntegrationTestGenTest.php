@@ -9,7 +9,6 @@ use Mockery as m;
  */
 class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      *
      */
@@ -34,7 +33,7 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 
         $expected = [
             'namespace'            => 'namespace Tests\Unit\Namespace;',
-            'dependencies'         => 'use Namespace\ClassName;' . PHP_EOL . 'use stdClass;',
+            'dependencies'         => 'use Namespace\ClassName;'.PHP_EOL.'use stdClass;',
             'testClassName'        => 'ClassNameTest',
             'className'            => 'ClassName',
             'constructorArguments' => '',
@@ -58,7 +57,7 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
         $result   = $obj->getDependencies();
         $expected = [
             'Namespace\ClassName',
-            'stdClass'
+            'stdClass',
         ];
 
         $this->assertEquals($expected, $result);
@@ -76,7 +75,7 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getDependenciesString();
 
-        $expected  = 'use Namespace\ClassName;' . PHP_EOL;
+        $expected  = 'use Namespace\ClassName;'.PHP_EOL;
         $expected .= 'use stdClass;';
 
         $this->assertEquals($expected, $result);
@@ -105,10 +104,10 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getConstructorArgumentsString();
 
-        $expected  = '$arg1 = new stdClass();' . PHP_EOL;
-        $expected .= '        $arg2 = new stdClass();' . PHP_EOL;
+        $expected  = '$arg1 = new stdClass();'.PHP_EOL;
+        $expected .= '        $arg2 = new stdClass();'.PHP_EOL;
         $expected .= '        $arg3 = new stdClass();';
-        $expected .= PHP_EOL . PHP_EOL;
+        $expected .= PHP_EOL.PHP_EOL;
 
         $this->assertEquals($expected, $result);
     }

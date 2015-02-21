@@ -11,6 +11,8 @@ test:
     - sed -i 's/^/;/' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     - ./vendor/bin/phpmd src/ text phpmd.xml
     - ./vendor/bin/phpcs --standard=phpcs.xml src/ -n
+    - ./vendor/bin/php-cs-fixer fix src/ --dry-run --diff --level=symfony --fixers=-unused_use,-empty_return
+    - ./vendor/bin/php-cs-fixer fix tests/ --dry-run --diff --level=symfony --fixers=-unused_use,-empty_return
     - ./vendor/bin/coveralls
 
   

@@ -3,10 +3,9 @@ namespace NullDev\TeeGee\TestDomain\TestGen;
 
 class BasicIntegrationTestGen extends AbstractTestGen
 {
-
     protected function getTemplatePath()
     {
-        return __DIR__ . '/../TestTemplate/BasicTestClass.tpl';
+        return __DIR__.'/../TestTemplate/BasicTestClass.tpl';
     }
 
     public function getVars()
@@ -40,7 +39,7 @@ class BasicIntegrationTestGen extends AbstractTestGen
         $dependencies = [];
 
         foreach ($this->getDependencies() as $dependency) {
-            $dependencies[] = 'use ' . $dependency . ';';
+            $dependencies[] = 'use '.$dependency.';';
         }
 
         return implode(PHP_EOL, $dependencies);
@@ -53,12 +52,12 @@ class BasicIntegrationTestGen extends AbstractTestGen
             $params = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $params[] = '$' . $methodParam->name . ' = new stdClass();';
+                $params[] = '$'.$methodParam->name.' = new stdClass();';
             }
 
             if (count($params)) {
-                $constructorArguments  = implode(PHP_EOL . '        ', $params);
-                $constructorArguments .= PHP_EOL . PHP_EOL;
+                $constructorArguments  = implode(PHP_EOL.'        ', $params);
+                $constructorArguments .= PHP_EOL.PHP_EOL;
 
                 return $constructorArguments;
             }
@@ -76,7 +75,7 @@ class BasicIntegrationTestGen extends AbstractTestGen
             $arguments = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $arguments[] = '$' . $methodParam->name;
+                $arguments[] = '$'.$methodParam->name;
             }
 
             if (count($arguments)) {
@@ -84,20 +83,17 @@ class BasicIntegrationTestGen extends AbstractTestGen
             }
         }
 
-        return $this->testMetaData->getClassName() . '(' . $argumentString . ')';
-
+        return $this->testMetaData->getClassName().'('.$argumentString.')';
     }
 
     public function getMethods()
     {
-
         $methods = [];
 
         $methodTemplate = new SimpleIncompleteTestMethod();
 
         foreach ($this->testMetaData->getReflectionObject()->getMethods() as $method) {
             if (!$method->isConstructor() && $method->isPublic() && $method->class === $this->testMetaData->getFullyQualifiedClassName()) {
-
                 $methods[] = $methodTemplate->render($method);
             }
         }

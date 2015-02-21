@@ -3,10 +3,9 @@ namespace NullDev\TeeGee\TestDomain\TestGen;
 
 class AdvUnitTestGen extends AbstractTestGen
 {
-
     protected function getTemplatePath()
     {
-        return __DIR__ . '/../TestTemplate/AdvUnitTestClass.tpl';
+        return __DIR__.'/../TestTemplate/AdvUnitTestClass.tpl';
     }
 
     public function getVars()
@@ -40,7 +39,7 @@ class AdvUnitTestGen extends AbstractTestGen
         $dependencies = [];
 
         foreach ($this->getDependencies() as $dependency) {
-            $dependencies[] = 'use ' . $dependency . ';';
+            $dependencies[] = 'use '.$dependency.';';
         }
 
         return implode(PHP_EOL, $dependencies);
@@ -53,12 +52,12 @@ class AdvUnitTestGen extends AbstractTestGen
             $params = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $params[] = '$mock' . ucfirst($methodParam->name) . ' = m::mock();';
+                $params[] = '$mock'.ucfirst($methodParam->name).' = m::mock();';
             }
 
             if (count($params)) {
-                $constructorArguments  = implode(PHP_EOL . '        ', $params);
-                $constructorArguments .= PHP_EOL . PHP_EOL;
+                $constructorArguments  = implode(PHP_EOL.'        ', $params);
+                $constructorArguments .= PHP_EOL.PHP_EOL;
 
                 return $constructorArguments;
             }
@@ -76,7 +75,7 @@ class AdvUnitTestGen extends AbstractTestGen
             $arguments = [];
 
             foreach ($constructor->getParameters() as $methodParam) {
-                $arguments[] = '$mock' . ucfirst($methodParam->name);
+                $arguments[] = '$mock'.ucfirst($methodParam->name);
             }
 
             if (count($arguments)) {
@@ -84,7 +83,7 @@ class AdvUnitTestGen extends AbstractTestGen
             }
         }
 
-        return $this->testMetaData->getClassName() . '(' . $argumentString . ')';
+        return $this->testMetaData->getClassName().'('.$argumentString.')';
     }
 
     public function getMethods()

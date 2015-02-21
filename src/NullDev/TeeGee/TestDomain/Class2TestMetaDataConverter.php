@@ -26,7 +26,7 @@ class Class2TestMetaDataConverter
             $this->getClassFilePathWithoutExtension()
         );
 
-        return $zzzz . 'Test.php';
+        return $zzzz.'Test.php';
     }
 
     public function getFunctionalTestFilePath()
@@ -37,7 +37,7 @@ class Class2TestMetaDataConverter
             $this->getClassFilePathWithoutExtension()
         );
 
-        return $zzzz . 'Test.php';
+        return $zzzz.'Test.php';
     }
 
     public function getIntegrationTestFilePath()
@@ -48,7 +48,7 @@ class Class2TestMetaDataConverter
             $this->getClassFilePathWithoutExtension()
         );
 
-        return $zzzz . 'Test.php';
+        return $zzzz.'Test.php';
     }
 
     public function getUnitTestFqdn()
@@ -101,17 +101,17 @@ class Class2TestMetaDataConverter
 
     public function getUnitTestBaseNamespace()
     {
-        return $this->getBaseNamespace() . 'Tests\\Unit\\';
+        return $this->getBaseNamespace().'Tests\\Unit\\';
     }
 
     public function getFunctionalTestBaseNamespace()
     {
-        return $this->getBaseNamespace() . 'Tests\\Functional\\';
+        return $this->getBaseNamespace().'Tests\\Functional\\';
     }
 
     public function getIntegrationTestBaseNamespace()
     {
-        return $this->getBaseNamespace() . 'Tests\\Integration\\';
+        return $this->getBaseNamespace().'Tests\\Integration\\';
     }
 
     public function getBaseNamespace()
@@ -145,6 +145,6 @@ class Class2TestMetaDataConverter
 
     public function getTestClassName()
     {
-        return $this->classMetaData->getClassName() . 'Test';
+        return $this->classMetaData->getClassName().'Test';
     }
 }

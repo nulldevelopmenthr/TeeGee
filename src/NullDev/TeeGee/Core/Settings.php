@@ -4,7 +4,6 @@ namespace NullDev\TeeGee\Core;
 
 class Settings
 {
-
     protected $rootPath;
     protected $testPath;
     protected $unitTestPath;

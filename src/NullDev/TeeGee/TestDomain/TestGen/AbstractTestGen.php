@@ -12,13 +12,11 @@ abstract class AbstractTestGen
 
     public function render()
     {
-
         $template = new \Text_Template($this->getTemplatePath());
 
         $template->setVar($this->getVars());
 
         return $template->render();
-
     }
 
     abstract protected function getTemplatePath();
@@ -35,7 +33,7 @@ abstract class AbstractTestGen
         $className = $this->testMetaData->getTestClassName();
         $fqdn      = $this->testMetaData->getTestFullyQualifiedClassName();
 
-        $namespace = str_replace('\\' . $className, '', $fqdn);
+        $namespace = str_replace('\\'.$className, '', $fqdn);
 
         return $namespace;
     }
@@ -45,7 +43,7 @@ abstract class AbstractTestGen
      */
     public function getNamespaceString()
     {
-        return 'namespace ' . $this->getNamespace() . ';';
+        return 'namespace '.$this->getNamespace().';';
     }
 
     /**

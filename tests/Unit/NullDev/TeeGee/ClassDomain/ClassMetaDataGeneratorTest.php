@@ -1,12 +1,11 @@
 <?php
 namespace Tests\Unit\NullDev\TeeGee\ClassDomain;
 
-use \Mockery as m;
+use Mockery as m;
 use NullDev\TeeGee\ClassDomain\ClassMetaDataGenerator;
 
 class ClassMetaDataGeneratorTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testGenerate()
     {
         $mockResult = m::mock();
@@ -59,7 +58,6 @@ class ClassMetaDataGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testGenerateNoFileFound()
     {
-
         $mockParser = m::mock();
         $mockParser->shouldReceive('parse')->once()->andThrow('\Exception');
 

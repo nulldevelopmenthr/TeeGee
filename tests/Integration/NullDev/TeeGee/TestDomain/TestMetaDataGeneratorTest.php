@@ -4,9 +4,7 @@ namespace Tests\Integration\NullDev\TeeGee\TestDomain;
 use Tests\Integration\NullDev\TeeGee\AbstractIntegrationTestBase;
 
 /**
- * Class TestMetaDataGeneratorTest
- *
- * @package Tests\Integration\NullDev\TeeGee\TestDomain
+ * Class TestMetaDataGeneratorTest.
  */
 class TestMetaDataGeneratorTest extends AbstractIntegrationTestBase
 {
@@ -36,8 +34,6 @@ class TestMetaDataGeneratorTest extends AbstractIntegrationTestBase
             $result = $this->generator->generateUnit($settings, $classMetaData);
 
             $this->assertInstanceOf('NullDev\TeeGee\TestDomain\TestMetaData', $result);
-
         }
-
     }
 }

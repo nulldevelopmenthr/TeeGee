@@ -5,7 +5,6 @@ use NullDev\TeeGee\Core\Settings;
 
 class SettingsTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testGettersAndSetters()
     {
         $obj = new Settings();
@@ -24,6 +23,5 @@ class SettingsTest extends \PHPUnit_Framework_TestCase
 
         $obj->setIntegrationalTestPath('integ-test-path');
         $this->assertEquals('integ-test-path', $obj->getIntegrationalTestPath());
-
     }
 }

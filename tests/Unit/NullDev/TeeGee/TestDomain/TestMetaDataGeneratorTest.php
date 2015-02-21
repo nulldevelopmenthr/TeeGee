@@ -2,11 +2,10 @@
 namespace Tests\Unit\NullDev\TeeGee\TestDomain;
 
 use NullDev\TeeGee\TestDomain\TestMetaDataGenerator;
-use \Mockery as m;
+use Mockery as m;
 
 class TestMetaDataGeneratorTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testGenerateUnit()
     {
         $mockTestMetaData = m::mock();

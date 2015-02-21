@@ -33,25 +33,25 @@ class SettingsGeneratorTest extends \PHPUnit_Framework_TestCase
         $result = $this->object->generate($path);
 
         $this->assertEquals(
-            $path . DIRECTORY_SEPARATOR,
+            $path.DIRECTORY_SEPARATOR,
             $result->getRootPath()
         );
 
         $this->assertEquals(
-            $path . DIRECTORY_SEPARATOR . 'Tests' . DIRECTORY_SEPARATOR,
+            $path.DIRECTORY_SEPARATOR.'Tests'.DIRECTORY_SEPARATOR,
             $result->getTestPath()
         );
 
         $this->assertEquals(
-            $path . DIRECTORY_SEPARATOR . 'Tests' . DIRECTORY_SEPARATOR . 'Unit' . DIRECTORY_SEPARATOR,
+            $path.DIRECTORY_SEPARATOR.'Tests'.DIRECTORY_SEPARATOR.'Unit'.DIRECTORY_SEPARATOR,
             $result->getUnitTestPath()
         );
         $this->assertEquals(
-            $path . DIRECTORY_SEPARATOR . 'Tests' . DIRECTORY_SEPARATOR . 'Functional' . DIRECTORY_SEPARATOR,
+            $path.DIRECTORY_SEPARATOR.'Tests'.DIRECTORY_SEPARATOR.'Functional'.DIRECTORY_SEPARATOR,
             $result->getFunctionalTestPath()
         );
         $this->assertEquals(
-            $path . DIRECTORY_SEPARATOR . 'Tests' . DIRECTORY_SEPARATOR . 'Integration' . DIRECTORY_SEPARATOR,
+            $path.DIRECTORY_SEPARATOR.'Tests'.DIRECTORY_SEPARATOR.'Integration'.DIRECTORY_SEPARATOR,
             $result->getIntegrationalTestPath()
         );
     }

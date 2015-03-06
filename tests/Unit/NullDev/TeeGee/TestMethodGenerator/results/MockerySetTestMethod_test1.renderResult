@@ -1,0 +1,13 @@
+    /**
+     *
+     */
+    public function testSetProperty()
+    {
+        //
+
+        $obj = new SimpleClass();
+
+        $property = 'property';
+        $obj->setProperty($property);
+        $this->assertEquals($property, $obj->getProperty();
+    }

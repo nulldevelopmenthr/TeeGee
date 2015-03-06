@@ -30,6 +30,16 @@ class BasicUnitTestGenTest extends \PHPUnit_Framework_TestCase
         $obj = new BasicUnitTestGen($mockTestMetaData);
 
         $result = $obj->getVars();
+        $expectedMethods = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
 
         $expected = [
             'namespace'            => 'namespace Tests\Unit\Namespace;',
@@ -38,7 +48,7 @@ class BasicUnitTestGenTest extends \PHPUnit_Framework_TestCase
             'className'            => 'ClassName',
             'constructorArguments' => '',
             'constructor'          => 'ClassName()',
-            'methods'              => '',
+            'methods'              => $expectedMethods,
         ];
 
         $this->assertEquals($expected, $result);
@@ -263,7 +273,17 @@ class BasicUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -284,7 +304,17 @@ class BasicUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -302,7 +332,17 @@ class BasicUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**

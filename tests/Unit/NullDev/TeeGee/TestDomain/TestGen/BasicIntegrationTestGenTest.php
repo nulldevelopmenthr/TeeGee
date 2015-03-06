@@ -31,6 +31,17 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getVars();
 
+        $expectedMethods = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+
         $expected = [
             'namespace'            => 'namespace Tests\Unit\Namespace;',
             'dependencies'         => 'use Namespace\ClassName;'.PHP_EOL.'use stdClass;',
@@ -38,7 +49,7 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
             'className'            => 'ClassName',
             'constructorArguments' => '',
             'constructor'          => 'ClassName()',
-            'methods'              => '',
+            'methods'              => $expectedMethods,
         ];
 
         $this->assertEquals($expected, $result);
@@ -241,7 +252,17 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -263,7 +284,17 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -284,7 +315,17 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -302,7 +343,17 @@ class BasicIntegrationTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**

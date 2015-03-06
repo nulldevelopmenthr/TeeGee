@@ -1,0 +1,7 @@
+    /**
+     * Auto generated get method using TeeGee
+     */
+    public function testGetProperty()
+    {
+        $this->assertEquals('defaultValue', $this->object->getProperty());
+    }

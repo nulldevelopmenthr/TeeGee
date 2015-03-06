@@ -1,0 +1,15 @@
+    /**
+     *
+     */
+    public function testGetProperty()
+    {
+        $mockConstructorParam1 = m::mock('DateTime');
+        $mockConstructorParam2 = m::mock();
+
+        $obj = new SimpleClass($mockConstructorParam1, $mockConstructorParam2);
+
+        //
+        $result = $obj->getProperty();
+
+        $this->assertEquals('defaultValue', $result);
+    }

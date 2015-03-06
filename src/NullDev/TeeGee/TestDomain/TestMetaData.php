@@ -125,11 +125,32 @@ class TestMetaData
         if (null === $constructor) {
             return false;
         }
-
         if (count($constructor->getParameters()) > 0) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public function hasProperty($propertyName)
+    {
+        foreach ($this->getReflectionObject()->getProperties() as $property) {
+            if ($property->getName() === $propertyName) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function hasMethod($methodName)
+    {
+        foreach ($this->getReflectionObject()->getMethods() as $method) {
+            if ($method->getName() === $methodName) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

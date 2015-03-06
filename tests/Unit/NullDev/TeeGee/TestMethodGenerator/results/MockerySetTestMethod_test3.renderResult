@@ -1,0 +1,14 @@
+    /**
+     *
+     */
+    public function testSetProperty()
+    {
+        $mockConstructorParam1 = m::mock('DateTime');
+        $mockConstructorParam2 = m::mock();
+
+        $obj = new SimpleClass($mockConstructorParam1, $mockConstructorParam2);
+
+        $property = m::mock('Vendor\Package\NameSpaceClassName');
+        $obj->setProperty($property);
+        $this->assertEquals($property, $obj->getProperty();
+    }

@@ -31,6 +31,17 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getVars();
 
+        $expectedMethods = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+
         $expected = [
             'namespace'            => 'namespace Tests\Unit\Namespace;',
             'dependencies'         => 'use Namespace\ClassName;'.PHP_EOL.'use Mockery as m;',
@@ -38,7 +49,7 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
             'className'            => 'ClassName',
             'constructorArguments' => '',
             'constructor'          => 'ClassName()',
-            'methods'              => '',
+            'methods'              => $expectedMethods,
         ];
 
         $this->assertEquals($expected, $result);
@@ -75,7 +86,7 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getDependenciesString();
 
-        $expected  = 'use Namespace\ClassName;'.PHP_EOL;
+        $expected = 'use Namespace\ClassName;'.PHP_EOL;
         $expected .= 'use Mockery as m;';
 
         $this->assertEquals($expected, $result);
@@ -86,12 +97,18 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetConstructorArgumentsString()
     {
-        $mockArg1       = new \stdClass();
-        $mockArg1->name = 'arg1';
-        $mockArg2       = new \stdClass();
-        $mockArg2->name = 'arg2';
-        $mockArg3       = new \stdClass();
-        $mockArg3->name = 'arg3';
+        $mockArgClass1 = m::mock();
+        $mockArgClass1->shouldReceive('getName')->once()->andReturn('class1');
+
+        $mockArg1 = m::mock();
+        $mockArg1->shouldReceive('getName')->once()->andReturn('arg1');
+        $mockArg1->shouldReceive('getClass')->twice()->andReturn($mockArgClass1);
+        $mockArg2 = m::mock();
+        $mockArg2->shouldReceive('getName')->once()->andReturn('arg2');
+        $mockArg2->shouldReceive('getClass')->once()->andReturn(null);
+        $mockArg3 = m::mock();
+        $mockArg3->shouldReceive('getName')->once()->andReturn('arg3');
+        $mockArg3->shouldReceive('getClass')->once()->andReturn(null);
 
         $mockConstructorReflection = m::mock();
         $mockConstructorReflection
@@ -104,10 +121,9 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getConstructorArgumentsString();
 
-        $expected  = '$mockArg1 = m::mock();'.PHP_EOL;
+        $expected = '$mockArg1 = m::mock(\'class1\');'.PHP_EOL;
         $expected .= '        $mockArg2 = m::mock();'.PHP_EOL;
         $expected .= '        $mockArg3 = m::mock();';
-        $expected .= PHP_EOL.PHP_EOL;
 
         $this->assertEquals($expected, $result);
     }
@@ -150,12 +166,12 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetConstructorString()
     {
-        $mockArg1       = new \stdClass();
-        $mockArg1->name = 'arg1';
-        $mockArg2       = new \stdClass();
-        $mockArg2->name = 'arg2';
-        $mockArg3       = new \stdClass();
-        $mockArg3->name = 'arg3';
+        $mockArg1 = m::mock();
+        $mockArg1->shouldReceive('getName')->once()->andReturn('arg1');
+        $mockArg2 = m::mock();
+        $mockArg2->shouldReceive('getName')->once()->andReturn('arg2');
+        $mockArg3 = m::mock();
+        $mockArg3->shouldReceive('getName')->once()->andReturn('arg3');
 
         $mockConstructorReflection = m::mock();
         $mockConstructorReflection
@@ -261,9 +277,18 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $obj = new AdvUnitTestGen($mockTestMetaData);
 
-        $result = $obj->getMethods();
+        $result   = $obj->getMethods();
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
 
-        $this->assertEquals('', $result);
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -284,7 +309,17 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -302,7 +337,17 @@ class AdvUnitTestGenTest extends \PHPUnit_Framework_TestCase
 
         $result = $obj->getMethods();
 
-        $this->assertEquals('', $result);
+        $expected = <<<EOF
+    /**
+     *
+     */
+    public function testNothing()
+    {
+        \$this->markTestIncomplete('TODO');
+    }
+
+EOF;
+        $this->assertEquals($expected, $result);
     }
 
     /**

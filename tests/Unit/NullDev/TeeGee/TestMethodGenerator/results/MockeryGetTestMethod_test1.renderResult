@@ -1,0 +1,14 @@
+    /**
+     *
+     */
+    public function testGetProperty()
+    {
+        //
+
+        $obj = new SimpleClass();
+
+        //
+        $result = $obj->getProperty();
+
+        $this->assertEquals('defaultValue', $result);
+    }

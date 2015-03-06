@@ -1,16 +1,15 @@
 <?php
-namespace NullDev\TeeGee\TestDomain\TestGen;
+namespace NullDev\TeeGee\TestFileGenerator;
 
+use NullDev\TeeGee\TestFileGenerator\AbstractTestGenerator;
 use NullDev\TeeGee\TestMethodGenerator\EmptyTestMethod;
-use NullDev\TeeGee\TestMethodGenerator\NothingTestMethod;
-use NullDev\TeeGee\TestMethodGenerator\SimpleGetTestMethod;
-use NullDev\TeeGee\TestMethodGenerator\SimpleSetTestMethod;
+use NullDev\TeeGee\TestMethodGenerator\MockerySetTestMethod;
 
-class BasicUnitTestGen extends AbstractTestGen
+class BasicUnitTestGenerator extends AbstractTestGenerator
 {
     protected function getTemplatePath()
     {
-        return __DIR__.'/../TestTemplate/BasicTestClass.tpl';
+        return __DIR__.'/BasicUnitTest.tpl';
     }
 
     public function getVars()
@@ -54,18 +53,11 @@ class BasicUnitTestGen extends AbstractTestGen
     {
         $constructor = $this->getConstructorMethod();
         if (null !== $constructor) {
-            $params = [];
 
-            foreach ($constructor->getParameters() as $methodParam) {
-                $params[] = '$mock'.ucfirst($methodParam->name).' = m::mock();';
-            }
+            //@TODO: move as dependecy
+            $zTodo = new MockerySetTestMethod($this->testMetaData);
 
-            if (count($params)) {
-                $constructorArguments = implode(PHP_EOL.'        ', $params);
-                $constructorArguments .= PHP_EOL.PHP_EOL;
-
-                return $constructorArguments;
-            }
+            return $zTodo->getMethodDependencyString($constructor);
         }
 
         return '';
@@ -77,15 +69,11 @@ class BasicUnitTestGen extends AbstractTestGen
         $argumentString = '';
 
         if (null !== $constructor) {
-            $arguments = [];
 
-            foreach ($constructor->getParameters() as $methodParam) {
-                $arguments[] = '$mock'.ucfirst($methodParam->name);
-            }
+            //@TODO: move as dependecy
+            $zTodo = new MockerySetTestMethod($this->testMetaData);
 
-            if (count($arguments)) {
-                $argumentString = implode(', ', $arguments);
-            }
+            $argumentString = $zTodo->getMethodDependencyString($constructor);
         }
 
         return $this->testMetaData->getClassName().'('.$argumentString.')';
@@ -127,7 +115,7 @@ class BasicUnitTestGen extends AbstractTestGen
         }
 
         if (count($methods) === 0) {
-            $nothingMethodTemplate = new NothingTestMethod($this->testMetaData);
+            $nothingMethodTemplate = new NothingTestMethod();
             $methods[]             = $nothingMethodTemplate->render();
         }
 

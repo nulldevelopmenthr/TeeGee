@@ -10,3 +10,5 @@
 *~
 #merge files
 *.orig
+#shell scripts in root
+/*.sh

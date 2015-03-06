@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Integration\NullDev\TeeGee;
+namespace tests\Integration\NullDev\TeeGee;
 
 use NullDev\TeeGee\Core\SettingsFactory;
 use NullDev\TeeGee\TestDomain\Class2TestMetaDataConverterFactory;

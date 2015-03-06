@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Unit\NullDev\TeeGee\TestDomain;
+namespace tests\Unit\NullDev\TeeGee\TestDomain;
 
 use Faker\Factory;
 use NullDev\TeeGee\TestDomain\TestMetaData;

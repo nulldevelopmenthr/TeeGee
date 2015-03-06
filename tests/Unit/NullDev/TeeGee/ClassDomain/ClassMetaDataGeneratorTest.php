@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Unit\NullDev\TeeGee\ClassDomain;
+namespace tests\Unit\NullDev\TeeGee\ClassDomain;
 
 use Mockery as m;
 use NullDev\TeeGee\ClassDomain\ClassMetaDataGenerator;

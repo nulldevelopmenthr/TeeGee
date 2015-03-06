@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Integration\NullDev\TeeGee\ClassDomain;
+namespace tests\Integration\NullDev\TeeGee\ClassDomain;
 
 use Tests\Integration\NullDev\TeeGee\AbstractIntegrationTestBase;
 

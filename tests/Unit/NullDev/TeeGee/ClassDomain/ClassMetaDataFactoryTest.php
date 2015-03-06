@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Unit\NullDev\TeeGee\ClassDomain;
+namespace tests\Unit\NullDev\TeeGee\ClassDomain;
 
 use NullDev\TeeGee\ClassDomain\ClassMetaDataFactory;
 

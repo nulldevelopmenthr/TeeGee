@@ -14,5 +14,3 @@ test:
     - ./vendor/bin/php-cs-fixer fix src/ --dry-run --diff --level=symfony --fixers=-unused_use,-empty_return
     - ./vendor/bin/php-cs-fixer fix tests/ --dry-run --diff --level=symfony --fixers=-unused_use,-empty_return
     - ./vendor/bin/coveralls
-
-  

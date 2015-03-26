@@ -1,6 +1,9 @@
 <?php
 namespace NullDev\TeeGee\TestDomain\TestGen;
 
+use NullDev\TeeGee\TestMethodGenerator\EmptyTestMethod;
+use NullDev\TeeGee\TestMethodGenerator\NothingTestMethod;
+
 class BasicIntegrationTestGen extends AbstractTestGen
 {
     protected function getTemplatePath()
@@ -90,12 +93,17 @@ class BasicIntegrationTestGen extends AbstractTestGen
     {
         $methods = [];
 
-        $methodTemplate = new SimpleIncompleteTestMethod();
+        $methodTemplate = new EmptyTestMethod($this->testMetaData);
 
         foreach ($this->testMetaData->getReflectionObject()->getMethods() as $method) {
             if (!$method->isConstructor() && $method->isPublic() && $method->class === $this->testMetaData->getFullyQualifiedClassName()) {
                 $methods[] = $methodTemplate->render($method);
             }
+        }
+
+        if (count($methods) === 0) {
+            $nothingMethodTemplate = new NothingTestMethod($this->testMetaData);
+            $methods[] = $nothingMethodTemplate->render();
         }
 
         $content = '';

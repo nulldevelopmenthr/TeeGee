@@ -1,9 +1,7 @@
-
-
     /**
      *
      */
-    public function test{methodName}()
+    public function testExampleMethod()
     {
         $this->markTestIncomplete('TODO');
     }

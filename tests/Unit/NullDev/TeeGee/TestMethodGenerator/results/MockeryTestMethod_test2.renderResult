@@ -1,0 +1,19 @@
+    /**
+     *
+     */
+    public function testSimpleMethod()
+    {
+        $this->markTestIncomplete('TODO');
+
+        $mockConstructorParam1 = m::mock();
+        $mockConstructorParam2 = m::mock();
+
+        $obj = new SimpleClass($mockConstructorParam1, $mockConstructorParam2);
+
+        //
+        $mockParam1 = m::mock();
+        $mockParam2 = m::mock();
+        $result = $obj->simpleMethod($mockParam1, $mockParam2);
+
+        $this->assertNotNull($result);
+    }

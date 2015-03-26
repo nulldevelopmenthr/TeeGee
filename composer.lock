@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ecc760f569c0e18050897693018debde",
+    "hash": "a8123e14ad697d66593c42e6e588173e",
     "packages": [
         {
             "name": "nulldev/examiner",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nulldevelopmenthr/examiner.git",
-                "reference": "1183f2adaa51214b65a74f89253c5f2da02480e2"
+                "reference": "a1d116339141429282f86a77bc939e55b4adeab3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nulldevelopmenthr/examiner/zipball/1183f2adaa51214b65a74f89253c5f2da02480e2",
-                "reference": "1183f2adaa51214b65a74f89253c5f2da02480e2",
+                "url": "https://api.github.com/repos/nulldevelopmenthr/examiner/zipball/a1d116339141429282f86a77bc939e55b4adeab3",
+                "reference": "a1d116339141429282f86a77bc939e55b4adeab3",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2015-02-21 18:06:36"
+            "time": "2015-02-21 15:43:58"
         }
     ],
     "packages-dev": [
@@ -372,16 +372,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.0.6",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4"
+                "reference": "1b0acf162da4f30237987e61e177a57f78e3d87e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4",
-                "reference": "a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/1b0acf162da4f30237987e61e177a57f78e3d87e",
+                "reference": "1b0acf162da4f30237987e61e177a57f78e3d87e",
                 "shasum": ""
             },
             "require": {
@@ -407,7 +407,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2015-03-02 08:06:43"
+            "time": "2014-12-04 12:38:39"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -460,16 +460,16 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "2.2.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "58c4b00f924d301e8c5281f40cfa9a66f3df9eee"
+                "reference": "580e6ca75b472a844389ab8df7a0b412901d0d91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/58c4b00f924d301e8c5281f40cfa9a66f3df9eee",
-                "reference": "58c4b00f924d301e8c5281f40cfa9a66f3df9eee",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/580e6ca75b472a844389ab8df7a0b412901d0d91",
+                "reference": "580e6ca75b472a844389ab8df7a0b412901d0d91",
                 "shasum": ""
             },
             "require": {
@@ -480,8 +480,7 @@
                 "symfony/filesystem": ">=2.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "*",
-                "squizlabs/php_codesniffer": "*"
+                "phpunit/phpunit": "*"
             },
             "bin": [
                 "src/bin/phpmd"
@@ -518,7 +517,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2015-03-02 10:26:50"
+            "time": "2015-01-25 13:46:59"
         },
         {
             "name": "phpspec/php-diff",
@@ -1539,21 +1538,20 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.3.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "5046b0e01c416fc2b06df961d0673c85bcdc896c"
+                "reference": "b301c98f19414d836fdaa678648745fcca5aeb4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5046b0e01c416fc2b06df961d0673c85bcdc896c",
-                "reference": "5046b0e01c416fc2b06df961d0673c85bcdc896c",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/b301c98f19414d836fdaa678648745fcca5aeb4f",
+                "reference": "b301c98f19414d836fdaa678648745fcca5aeb4f",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
             },
             "bin": [
@@ -1561,11 +1559,6 @@
                 "scripts/phpcbf"
             ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
             "autoload": {
                 "classmap": [
                     "CodeSniffer.php",
@@ -1609,7 +1602,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-03-04 02:07:03"
+            "time": "2015-01-21 22:44:05"
         },
         {
             "name": "symfony/config",

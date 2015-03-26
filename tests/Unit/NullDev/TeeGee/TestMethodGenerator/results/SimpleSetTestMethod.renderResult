@@ -1,0 +1,9 @@
+    /**
+     * Auto generated set method using TeeGee
+     */
+    public function testSetProperty()
+    {
+        $property = 'property';
+        $this->object->setProperty($property);
+        $this->assertEquals($property, $this->object->getProperty());
+    }

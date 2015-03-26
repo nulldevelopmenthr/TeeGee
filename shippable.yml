@@ -1,0 +1,22 @@
+build_environment: Ubuntu 14.04
+language: php
+cache: true
+archive: true
+
+php:
+  - 5.5
+
+before_script:
+  - composer install
+  - chmod +x vendor/bin/phpunit
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+  - mkdir -p build/cov
+  - mkdir -p build/logs
+
+script:
+  - ./vendor/bin/phpunit --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage --coverage-php build/cov/coverage.cov tests/
+  - ./vendor/bin/phpmd src/ xml phpmd.xml --reportfile shippable/phpmd.xml
+  - ./vendor/bin/phpcs --standard=phpcs.xml src/ -n --report=xml --report-file=shippable/phpcs.xml
+  - ./vendor/bin/php-cs-fixer fix src/ --dry-run --diff --level=symfony --fixers=-unused_use,-empty_return --format=xml > shippable/phpcsfixer-src.xml
+  - ./vendor/bin/php-cs-fixer fix tests/ --dry-run --diff --level=symfony --fixers=-unused_use,-empty_return --format=xml > shippable/phpcsfixer-tests.xml

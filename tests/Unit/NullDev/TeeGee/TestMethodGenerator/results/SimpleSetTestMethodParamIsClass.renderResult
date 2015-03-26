@@ -1,0 +1,9 @@
+    /**
+     * Auto generated set method using TeeGee
+     */
+    public function testSetProperty()
+    {
+        $property = m::mock('SomeClass');
+        $this->object->setProperty($property);
+        $this->assertEquals($property, $this->object->getProperty());
+    }

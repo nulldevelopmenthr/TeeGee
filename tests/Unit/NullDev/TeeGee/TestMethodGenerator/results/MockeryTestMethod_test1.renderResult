@@ -1,0 +1,17 @@
+    /**
+     *
+     */
+    public function testSimpleMethod()
+    {
+        $this->markTestIncomplete('TODO');
+
+        //
+
+        $obj = new SimpleClass();
+
+        //
+        //
+        $result = $obj->simpleMethod();
+
+        $this->assertNotNull($result);
+    }
